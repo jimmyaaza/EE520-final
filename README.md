@@ -1,41 +1,33 @@
 Overview
 ===
 
-This project was created as the capstone for the EEP520 course at the University of Washington. It features a labyrinth constructed within the Enviro framework, accompanied by a robotic simulation that leverages both Enviro and Elma for maze navigation. The robot employs a wall-following algorithm to trace the maze's right-hand side until it reaches the conclusion. This method is effective for maneuvering through intricate labyrinths that include cul-de-sacs. Upon successfully navigating the entire maze, a notification is displayed in the terminal, and the robot is programmed to restart its journey.
+This initiative was developed as the culminating project for the EEP520 class at the University of Washington. It showcases a complex maze designed using the Enviro framework, paired with a simulated robot that utilizes both Enviro and Elma for its navigation tasks. The robot adopts a strategy of following the right wall of the maze, allowing it to effectively navigate through the convoluted paths and dead ends. This technique proves to be efficient in tackling mazes with complex designs. Once the robot completes its journey through the maze, a completion message is shown in the terminal, and the robot is set to automatically begin its path anew.
 
 Key challenges
 ===
+
 Challenge 1:
-My initial attempt to set up the Enviro platform with Git Bash was met with a frustrating error that stated, 'the input device is not a TTY.' After some research and troubleshooting, I discovered that using 'winpty' as a prefix for commands in mintty could solve this issue. Implementing winpty in my Windows setup ultimately allowed me to overcome this hurdle. Additionally, I encountered several other configuration challenges specific to Windows but was able to resolve them through online resources and discussions with peers.
+Initially, my strategy involved placing a block at the maze's terminus to initiate a collision event with the robot, aiming to reset its position subsequently. Unfortunately, this method resulted in unforeseen 'segmentation errors' among other complications. To circumvent these obstacles, I adopted a programmatic solution to confirm the robot's maze completion upon reaching a predetermined location in the upper right corner, thus eliminating the earlier encountered problems. Concurrently, the robot's mission was to independently find its way through any maze without a set path. This ambition propelled me to investigate a variety of navigational techniques, amongst which the 'follow the wall' method stood out. Despite its initial counterintuitiveness, this strategy of having the robot persistently trail one wall consistently guided it to the maze's exit. This approach was both unexpectedly straightforward and efficacious, highlighting its effectiveness in ensuring the robot's successful navigation through mazes of any complexity.
 
 Challenge 2:
-The goal for the robot was to autonomously navigate through any maze without a predefined route. This objective led me to explore various strategies, including the somewhat counterintuitive 'follow the wall' method. Surprisingly, this approach, where the robot consistently follows one wall, reliably led it to the maze's exit, proving both simple and effective.
+I ran into a problem where the robot kept getting stuck because of the friction with the maze walls. To fix this, I changed the simulation settings to remove wall friction. This made things simpler and stopped the robot from getting stuck.
 
-Challenge 3:
-I faced an unexpected issue where the robot would get stuck due to friction against the maze walls. To address this, I decided to eliminate wall friction in the simulation settings, which simplified interactions and prevented the robot from becoming trapped.
 
-Challenge 4:
-Establishing a mechanism to detect the maze's completion presented its own set of challenges. Initially, I placed a block at the maze's end to trigger a collision event with the robot, intending to reset the robot's position. However, this approach led to unexpected 'segmentation errors' and other anomalies. I resolved this by programmatically determining the robot's completion of the maze when it reached a specific position in the upper right corner, avoiding the previous issues.
-Install and run the code:
+Build and use instructions:
 ===
-You can also build the docker environment, described in env/Dockerfile, yourself, with the following commands. These commands were tested using git bash within VS Code:
+General usage:
+	Run the docker container in the command window, please follow the step in the Setup Instruction.
 
-    git clone https://github.com/jeffiskater/final_project.git
-    docker run -p80:80 -p8765:8765 -v "/$(pwd -W):/source" -it klavins/enviro:alpha bash
-    esm start
-    enviro
-
-If you are using Windows system, using this command
-
-    winpty docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.61 bash
-    
-
-Run and/or use the project
-===
-When you enter the "enviro" command, the project runs automatically.
+Setup Instruction:
+	1. Open up CMD or docker
+      2. Navigate to the direction of the file folder in CMD
+      3. Using docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.2 bash to install and start using enviro.
+      4. Type "esm start" to start.
+      5. Type "enviro" to run the program. 
+      6. Use "ctrl-c" to stop the program.
+      7. Use "exit" to exit the Docker container and stop it
 
 Sources:
 ===
-- The following link from allabout Circuits.com was used as the conceptual basis for the wall following code implemented in this project. The truth tables provided are the primary resources utilized.
-https://www.allabout Circuits.com/projects/how-to-build-a-robot-follow-walls/
+- The following link from Medium.com was used to determine how to program a robot to follow the walls to guide it to its exit: https://andrewyong7338.medium.com/maze-escape-with-wall-following-algorithm-170c35b88e00
 - This project uses Enviro and Elma offered through the EEP 520 course
