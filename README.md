@@ -19,13 +19,13 @@ General usage:
 	Run the docker container in the command window, please follow the step in the Setup Instruction.
 
 Setup Instruction:
-	1. Open up CMD or docker
-      2. Navigate to the direction of the file folder in CMD
-      3. Using docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.2 bash to install and start using enviro.
-      4. Type "esm start" to start.
-      5. Type "enviro" to run the program. 
-      6. Use "ctrl-c" to stop the program.
-      7. Use "exit" to exit the Docker container and stop it
+	1. Open up CMD or docker  
+      2. Navigate to the direction of the file folder in CMD  
+      3. Using docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.2 bash to install and start using enviro.  
+      4. Type "esm start" to start.  
+      5. Type "enviro" to run the program.   
+      6. Use "ctrl-c" to stop the program.  
+      7. Use "exit" to exit the Docker container and stop it  
 
 Sources:
 ===
